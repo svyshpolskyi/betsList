@@ -1,0 +1,11 @@
+<div class="col-xs-6 col-md-7">
+  <ul class="list-group">
+      <li *ngFor ="let bet of betData" class="list-group-item clearfix" style="padding:0;">
+        <span class="col-xs-6" 
+              style="padding: 10px 15px; border-right: 1px solid #ddd; text-align: center;">
+              {{bet.match}}
+        </span>
+        <span class="col-xs-4" style="padding: 10px 15px; border-right: 1px solid #ddd; text-align: center;">{{bet.selectedResult}}</span>
+      </li>
+  </ul>
+</div>
