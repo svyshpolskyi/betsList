@@ -3,9 +3,11 @@
       <li *ngFor ="let bet of betData" class="list-group-item clearfix" style="padding:0;">
         <span class="col-xs-6" 
               style="padding: 10px 15px; border-right: 1px solid #ddd; text-align: center;">
-              {{bet.match}}
+              {{bet.team1}} - {{bet.team2}}
         </span>
-        <span class="col-xs-4" style="padding: 10px 15px; border-right: 1px solid #ddd; text-align: center;">{{bet.selectedResult}}</span>
+        <span class="col-xs-4" style="padding: 10px 15px; border-right: 1px solid #ddd; text-align: center;">
+          {{bet.selected}}
+        </span>
       </li>
   </ul>
 </div>

@@ -8,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BetListComponent implements OnInit {
   @Input() betData;
   constructor() { }
-
   ngOnInit() {
   }
 

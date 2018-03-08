@@ -10,11 +10,11 @@ export class MatchesListComponent implements OnInit {
   matches = [{team1: 'Tottenham', team2: 'Juventus'},
             {team1: 'Manchester United', team2: 'Sevilla'},
             {team1: 'AS Roma', team2: 'Shakhtar Donetsk'}];
-
+selectedMatches = this.matches.slice();
 bets = [];
 result = '';
-
 addBet(event, match, firstTeam, draw, secondTeam) {
+  match.selected = event.target.innerText;
   const resultsArr = [firstTeam, draw, secondTeam];
   resultsArr.map(element => {
     if (element === event.target) {
@@ -23,17 +23,12 @@ addBet(event, match, firstTeam, draw, secondTeam) {
       element.removeAttribute('selected');
     }
   });
-  this.result = 'test';
-  this.bets.push({
-    match: `${match.team1} - ${match.team2}`,
-    selectedResult: event.target.innerText
-  });
 }
 
 submitBet() {
-  console.log(this.bets);
-  this.betSubmitted.emit(this.bets);
-  this.bets = [];
+
+  this.betSubmitted.emit(this.selectedMatches);
+  // selectedMatches = [];
 }
   constructor() { }
 
