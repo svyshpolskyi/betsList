@@ -33,7 +33,7 @@ export class MatchesListComponent implements OnInit {
   submitBet() {
     this.matches.forEach(el => {
       if (Object.values(el.bids).some(bid => bid)) {
-        this.selectedMatches.push(el);
+        this.selectedMatches.push(JSON.parse(JSON.stringify(el)));
       }
     });
     this.betSubmitted.emit(this.selectedMatches);
