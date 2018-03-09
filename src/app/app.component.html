@@ -1,9 +1,7 @@
 <div class="container-fluid">
-    <div class="navbar navbar-default">Menu</div>
-    <div class="row">
-        <app-matches-list (betSubmitted)="onBetSubmitted($event)"></app-matches-list>       
-        <app-bet-list [betData]="betData"></app-bet-list>
-    </div>
-    
-
-  </div>
+	<div class="navbar navbar-default">Menu</div>
+	<div class="row">
+		<app-matches-list (betSubmitted)="onBetSubmitted($event)"></app-matches-list>
+		<app-bet-list [betData]="betData"></app-bet-list>
+	</div>
+</div>
