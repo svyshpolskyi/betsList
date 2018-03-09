@@ -6,33 +6,38 @@ import { Component, OnInit, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./matches-list.component.css']
 })
 export class MatchesListComponent implements OnInit {
+  matches = [
+    {team1: 'Tottenham', team2: 'Juventus', bids: { t1: false, d: false, t2: false }},
+    {team1: 'Manchester United', team2: 'Sevilla', bids: { t1: false, d: false, t2: false }},
+    {team1: 'AS Roma', team2: 'Shakhtar Donetsk', bids: { t1: false, d: false, t2: false }}];
+  selectedMatches = [];
+  bets = [];
+
   @Output() betSubmitted = new EventEmitter<{}>();
-  matches = [{team1: 'Tottenham', team2: 'Juventus'},
-            {team1: 'Manchester United', team2: 'Sevilla'},
-            {team1: 'AS Roma', team2: 'Shakhtar Donetsk'}];
-selectedMatches = this.matches.slice();
-bets = [];
-result = '';
-addBet(event, match, firstTeam, draw, secondTeam) {
-  match.selected = event.target.innerText;
-  const resultsArr = [firstTeam, draw, secondTeam];
-  resultsArr.map(element => {
-    if (element === event.target) {
-      element.setAttribute('selected', '');
-    } else {
-      element.removeAttribute('selected');
-    }
-  });
-}
 
-submitBet() {
-
-  this.betSubmitted.emit(this.selectedMatches);
-  // selectedMatches = [];
-}
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  addBet(match, res) {
+    for (const mat in match.bids ) {
+      if (mat === res) {
+        match.bids[mat] = !match.bids[mat];
+      } else {
+        match.bids[mat] = false;
+      }
+    }
+
+  }
+
+  submitBet() {
+    this.matches.forEach(el => {
+      if (Object.values(el.bids).some(bid => bid)) {
+        this.selectedMatches.push(el);
+      }
+    });
+    this.betSubmitted.emit(this.selectedMatches);
+    this.selectedMatches = [];
   }
 
 }

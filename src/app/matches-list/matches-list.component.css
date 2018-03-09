@@ -1,1 +1,9 @@
-*[selected], *[selected]:focus  {background-color: #00ffa1c4};
+a {
+  cursor: pointer;
+}
+
+.selectedBid,
+.selectedBid:hover  {
+  background-color: #00ffa1c4;
+  cursor: pointer;
+}
