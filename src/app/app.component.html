@@ -1,8 +1,10 @@
 <div class="container-fluid">
-    <div class="navbar navbar-default">Menu</div>
     <div class="row">
-        <app-matches-list (betSubmitted)="onBetSubmitted($event)"></app-matches-list>       
-        <app-bet-list [betData]="betData"></app-bet-list>
+        <app-header (itemSelected)="onNavigate($event)"></app-header>
+    </div>
+    <div class="row">
+        <app-matches-list *ngIf="selectedItem === 'matchesList'" (betSubmitted)="onBetSubmitted($event)"></app-matches-list>       
+        <app-bet-list *ngIf="selectedItem === 'bets'" [betData]="betData"></app-bet-list>
     </div>
     
 
