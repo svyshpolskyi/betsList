@@ -14,5 +14,6 @@ export class AppComponent {
   }
   onBetSubmitted(betData) {
     this.betData = betData;
+    console.log(betData);
   }
 }
