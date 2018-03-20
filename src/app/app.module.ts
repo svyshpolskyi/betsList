@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MatchesListComponent } from './matches-list/matches-list.component';
 import { BetListComponent } from './bet-list/bet-list.component';
 import { HeaderComponent } from './header/header.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { MenuHighlightDirective } from './directives/highlightMenuItem.directive';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     MatchesListComponent,
     BetListComponent,
-    HeaderComponent
+    HeaderComponent,
+    HighlightDirective,
+    MenuHighlightDirective
   ],
   imports: [
     BrowserModule

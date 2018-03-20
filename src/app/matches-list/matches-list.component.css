@@ -1,1 +1,6 @@
-*[selected], *[selected]:focus  {background-color: #00ffa1c4};
+.selectedTeam,
+.selectedTeam:hover,
+.selectedTeam:focus  {
+  background-color: #00ffa1c4;
+  cursor: pointer;
+}

@@ -1,9 +1,10 @@
-<div class="col-xs-6 col-md-5">
+<div class="col-xs-6 col-md-5" *ngIf = "matches.ChampionsLeague">
+  <div class="nav nav-pills nav-stacked text-center" appHighlight>Champions League</div>
   <ul class="nav nav-pills nav-stacked">
-    <li class="matchList" *ngFor ="let match of matches" (click)="addBet($event, match, firstTeam, draw, secondTeam)">
-      <a href="#" class="col-md-4 text-left" #firstTeam>{{match.team1}}</a>
-      <a href="#" class="col-md-4 text-center" #draw>Draw</a>
-      <a href="#" class="col-md-4 text-right" #secondTeam>{{match.team2}}</a>
+    <li class="matchList" *ngFor ="let match of matches.ChampionsLeague">
+      <a href="#" class="col-md-4 text-left" (click)="addBet(match, 't1')" [ngClass]="{'selectedTeam': match.results.t1}">{{match.team1}}</a>
+      <a href="#" class="col-md-4 text-center" (click)="addBet(match, 'd')" [ngClass]="{'selectedTeam': match.results.d}">Draw</a>
+      <a href="#" class="col-md-4 text-right" (click)="addBet(match, 't2')" [ngClass]="{'selectedTeam': match.results.t2}">{{match.team2}}</a>
     </li>
   </ul>
   <button class="btn btn-primary" (click)="submitBet()">Submit bet</button>
