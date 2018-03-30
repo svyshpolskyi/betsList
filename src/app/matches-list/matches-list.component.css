@@ -21,5 +21,18 @@
   background-position: 5px;
   background-size: 30px;
   background-color: #bbb7b7;
+  cursor: pointer;
+  font-weight: bold;
 }
+
+/* .arrowDown {
+  background: url('//cdn3.iconfinder.com/data/icons/iconano-web-stuff/512/014-CaretDown-128.png') no-repeat;  
+  background-position: right 16px top 50%;
+  background-size: 50%;
+  width: 128px;
+  height: 40px;
+  display: inline-block;
+} */
+
+
 

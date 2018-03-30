@@ -8,7 +8,7 @@ import { Directive, OnInit, ElementRef, HostBinding, HostListener } from '@angul
      constructor (private elRef: ElementRef) {}
      ngOnInit() {}
      @HostListener('mouseover') mouseover() {
-         this.backgroundColor = 'red';
+         this.backgroundColor = '#7ccbe2';
      }
 
      @HostListener('mouseleave') mouseleave() {

@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { MatchesService } from './matches-list.service';
 import * as _ from 'lodash';
 
 @Component({
@@ -6,22 +7,16 @@ import * as _ from 'lodash';
   templateUrl: './matches-list.component.html',
   styleUrls: ['./matches-list.component.css']
 })
-export class MatchesListComponent {
-
-  matches = {
-    ChampionsLeague: [
-      {team1: 'Tottenham', team2: 'Juventus', results: { t1: false, d: false, t2: false }},
-      {team1: 'Manchester United', team2: 'Sevilla', results: { t1: false, d: false, t2: false }},
-      {team1: 'AS Roma', team2: 'Shakhtar Donetsk', results: { t1: false, d: false, t2: false }}
-    ],
-    PremierLeague: [
-      {team1: 'Crystal Palace', team2: 'Liverpool', results: { t1: false, d: false, t2: false }},
-      {team1: 'Brighton', team2: 'Leicester', results: { t1: false, d: false, t2: false }},
-      {team1: 'Stoke', team2: 'Newcastle', results: { t1: false, d: false, t2: false }}
-    ]
-  };
-
+export class MatchesListComponent implements OnInit {
+  matches;
   @Output() betSubmitted = new EventEmitter<{}>();
+
+  constructor(private matchesService: MatchesService) {
+  }
+
+  ngOnInit() {
+    this.matches = this.matchesService.getMatches();
+  }
 
   addBet(match: {team1: string, team2: string, results: {t1: boolean, d: boolean, t2: boolean}}, selectedResult: string): void {
     for (const result in match.results) {
@@ -35,8 +30,8 @@ export class MatchesListComponent {
 
   submitBet(): void {
     const clonedMatches = _.cloneDeep(this.matches);
+    console.log(clonedMatches);
     this.betSubmitted.emit(clonedMatches);
   }
-  constructor() { }
 
 }
