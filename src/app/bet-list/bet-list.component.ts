@@ -6,12 +6,9 @@ import * as _ from 'lodash';
   templateUrl: './bet-list.component.html',
   styleUrls: ['./bet-list.component.css']
 })
-export class BetListComponent implements OnInit {
-  betList: any;
-  @Input() betData;
+export class BetListComponent {
+  @Input() betList;
+  // betList: any = _.values(this.betData);
   constructor() { }
-  ngOnInit() {
-    this.betList = _.values(this.betData);
-  }
 
 }

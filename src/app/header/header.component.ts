@@ -6,10 +6,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Output() itemSelected = new EventEmitter<string>();
-  onSelected(selectedItem: string) {
-    this.itemSelected.emit(selectedItem);
-  }
+  // @Output() itemSelected = new EventEmitter<string>();
+  // onSelected(selectedItem: string) {
+  //   this.itemSelected.emit(selectedItem);
+  // }
 
 
 }

@@ -9,16 +9,22 @@ import { HeaderComponent } from './header/header.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { MenuHighlightDirective } from './directives/highlightMenuItem.directive';
 import { MatchesService } from './matches-list/matches-list.service';
+import { ToggleBlockDirective } from './directives/toggleBlock.directive';
+import { CompetitionComponent } from './matches-list/competition/competition.component';
+import { CompetitionLogoDirective } from './directives/competLogo.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MatchesListComponent,
+    CompetitionComponent,
     BetListComponent,
     HeaderComponent,
     HighlightDirective,
-    MenuHighlightDirective
+    MenuHighlightDirective,
+    ToggleBlockDirective,
+    CompetitionLogoDirective
   ],
   imports: [
     BrowserModule

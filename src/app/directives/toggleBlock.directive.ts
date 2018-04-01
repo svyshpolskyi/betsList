@@ -1,9 +1,12 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, HostBinding } from '@angular/core';
 
 @Directive ({
     selector: '[appToggleBlock]'
 })
 
 export class ToggleBlockDirective {
-    constructor (private elRef: ElementRef) {}
+    @HostBinding('class.opened') isOpened = true;
+    @HostListener('click') toggleOpen() {
+        this.isOpened = !this.isOpened;
+    }
 }
