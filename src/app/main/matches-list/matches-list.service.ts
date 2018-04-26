@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export class MatchesService {
     private matches = {
         'Champions League': [
@@ -9,9 +11,13 @@ export class MatchesService {
           {team1: 'Crystal Palace', team2: 'Liverpool', results: { t1: false, d: false, t2: false }},
           {team1: 'Brighton', team2: 'Leicester', results: { t1: false, d: false, t2: false }},
           {team1: 'Stoke', team2: 'Newcastle', results: { t1: false, d: false, t2: false }}
+        ],
+        'Europa League': [
+          {team1: 'Marseille', team2: 'Salzburg', results: { t1: false, d: false, t2: false }},
+          {team1: 'Arsenal', team2: 'Atletico Madrid', results: { t1: false, d: false, t2: false }},
         ]
       };
     getMatches() {
-        return this.matches;
+        return _.cloneDeep(this.matches);
     }
 }

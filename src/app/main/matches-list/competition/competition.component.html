@@ -1,5 +1,9 @@
 <div class="competition" *ngIf = "matches.length > 0">
-    <div class="competitionHeader championsLeague" appToggleBlock appCompetLogo>{{competition}}<i class="arrow"></i></div>
+    <div class="competitionHeader" appToggleBlock >
+        <img [src]="logo">
+        {{competition}}
+        <i class="arrow"></i>
+    </div>
     <ul class="nav nav-pills nav-stacked">
         <li class="matchList" *ngFor ="let match of matches">
             <a class="col-md-4 text-left" (click)="addBet(match, 't1')" [ngClass]="{'selectedTeam': match.results.t1}">{{match.team1}}</a>

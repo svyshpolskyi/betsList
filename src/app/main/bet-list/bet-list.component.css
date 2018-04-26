@@ -1,0 +1,7 @@
+.betList ul {
+    margin-top: 0;
+}
+
+.betList div:first-child ul:first-child {
+    margin-top: 20px;
+}

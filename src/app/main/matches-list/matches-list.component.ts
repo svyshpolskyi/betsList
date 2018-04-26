@@ -18,7 +18,6 @@ export class MatchesListComponent implements OnInit {
   ngOnInit() {
     this.matches = this.matchesService.getMatches();
     this.competitions = _.keys(this.matches);
-    console.log(this.competitions);
   }
 
   addBet(match: {team1: string, team2: string, results: {t1: boolean, d: boolean, t2: boolean}}, selectedResult: string): void {
@@ -30,6 +29,11 @@ export class MatchesListComponent implements OnInit {
       }
     }
   }
+
+  clearSelection() {
+    this.matches =  this.matchesService.getMatches();
+  }
+
   submitBet(): void {
     const clonedMatches = _.cloneDeep(this.matches);
     this.betSubmitted.emit(_.values(clonedMatches));

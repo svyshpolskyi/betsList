@@ -3,8 +3,7 @@
         <app-header></app-header>
     </div>
     <div class="row">
-        <app-matches-list (betSubmitted)="onBetSubmitted($event)"></app-matches-list>       
-        <app-bet-list [betList]="betData"></app-bet-list>
+        <router-outlet></router-outlet>
     </div>
     
 
