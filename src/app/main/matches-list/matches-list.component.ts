@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { MatchesService } from './matches-list.service';
 import * as _ from 'lodash';
+import { UserinfoService } from '../userinfo/userinfo.service';
 
 @Component({
   selector: 'app-matches-list',
@@ -12,7 +13,7 @@ export class MatchesListComponent implements OnInit {
   competitions;
   @Output() betSubmitted = new EventEmitter<{}>();
 
-  constructor(private matchesService: MatchesService) {
+  constructor(private matchesService: MatchesService, private userinfoService: UserinfoService) {
   }
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class MatchesListComponent implements OnInit {
   submitBet(): void {
     const clonedMatches = _.cloneDeep(this.matches);
     this.betSubmitted.emit(_.values(clonedMatches));
+    this.userinfoService.betSubmitted.emit(_.values(clonedMatches));
   }
 
 }

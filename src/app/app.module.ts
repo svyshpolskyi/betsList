@@ -16,6 +16,7 @@ import { LogosService } from './shared/logos.service';
 import { Routes, RouterModule } from '@angular/router';
 import { UserinfoComponent } from './main/userinfo/userinfo.component';
 import { MainComponent } from './main/main.component';
+import { UserinfoService } from './main/userinfo/userinfo.service';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -40,7 +41,9 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MatchesService, LogosService],
+  providers: [MatchesService,
+              LogosService,
+              UserinfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
