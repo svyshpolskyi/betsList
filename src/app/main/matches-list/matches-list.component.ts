@@ -38,7 +38,7 @@ export class MatchesListComponent implements OnInit {
   submitBet(): void {
     const clonedMatches = _.cloneDeep(this.matches);
     this.betSubmitted.emit(_.values(clonedMatches));
-    this.userinfoService.betSubmitted.emit(_.values(clonedMatches));
+    this.userinfoService.addBet(_.values(clonedMatches), +new Date);
   }
 
 }

@@ -7,17 +7,12 @@ import { UserinfoService } from './userinfo.service';
   styleUrls: ['./userinfo.component.css']
 })
 export class UserinfoComponent implements OnInit {
-  userBets = [];
+  bets;
 
   constructor(private userinfoService: UserinfoService) { }
 
   ngOnInit() {
-    this.userinfoService.betSubmitted
-      .subscribe(
-        (bet) =>  {
-          this.userBets.push(bet);
-        }
-      );
+    this.bets = this.userinfoService.getBets();
   }
 
 }
