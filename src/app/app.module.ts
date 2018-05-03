@@ -17,6 +17,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserinfoComponent } from './main/userinfo/userinfo.component';
 import { MainComponent } from './main/main.component';
 import { UserinfoService } from './main/userinfo/userinfo.service';
+import { BetsService } from './shared/bets.service';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   ],
   providers: [MatchesService,
               LogosService,
-              UserinfoService],
+              UserinfoService,
+              BetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

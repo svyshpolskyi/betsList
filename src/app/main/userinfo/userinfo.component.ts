@@ -1,3 +1,4 @@
+import { BetsService } from './../../shared/bets.service';
 import { Component, OnInit } from '@angular/core';
 import { UserinfoService } from './userinfo.service';
 
@@ -9,10 +10,10 @@ import { UserinfoService } from './userinfo.service';
 export class UserinfoComponent implements OnInit {
   bets;
 
-  constructor(private userinfoService: UserinfoService) { }
+  constructor(private betService: BetsService) { }
 
   ngOnInit() {
-    this.bets = this.userinfoService.getBets();
+    this.bets = this.betService.getAllBets();
   }
 
 }

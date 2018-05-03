@@ -1,3 +1,4 @@
+import { BetsService } from './../../shared/bets.service';
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { MatchesService } from './matches-list.service';
 import * as _ from 'lodash';
@@ -13,7 +14,9 @@ export class MatchesListComponent implements OnInit {
   competitions;
   @Output() betSubmitted = new EventEmitter<{}>();
 
-  constructor(private matchesService: MatchesService, private userinfoService: UserinfoService) {
+  constructor(private matchesService: MatchesService,
+              private userinfoService: UserinfoService,
+              private betsService: BetsService) {
   }
 
   ngOnInit() {
@@ -37,8 +40,9 @@ export class MatchesListComponent implements OnInit {
 
   submitBet(): void {
     const clonedMatches = _.cloneDeep(this.matches);
-    this.betSubmitted.emit(_.values(clonedMatches));
-    this.userinfoService.addBet(_.values(clonedMatches), +new Date);
+    // this.betSubmitted.emit(_.values(clonedMatches));
+    // this.userinfoService.addBet(_.values(clonedMatches), +new Date);
+    this.betsService.addNewBet(+new Date, _.values(clonedMatches));
   }
 
 }
