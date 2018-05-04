@@ -1,5 +1,6 @@
 import { Bet } from './bet.model';
 import { EventEmitter } from '@angular/core';
+import * as _ from 'lodash';
 
 export class BetsService {
     betSubmitted = new EventEmitter<{}>();
@@ -15,9 +16,10 @@ export class BetsService {
 
     addNewBet(date, bet) {
         const finalBet = {};
-        finalBet[date] = bet;
+        const selectedMatches = _.filter(bet, (match) => match.results.t1 || match.results.d || match.results.t2);
+        finalBet[date] = selectedMatches;
         this.bets.push(finalBet);
-        this.betSubmitted.emit(this.bets.slice());
+        this.betSubmitted.emit(this.bets);
         console.log(this.bets);
     }
 
