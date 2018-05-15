@@ -7,8 +7,5 @@ import { Component } from '@angular/core';
   })
 
 export class MainComponent {
-    betData = [];
-  onBetSubmitted(betData) {
-    this.betData = betData;
-  }
+
 }

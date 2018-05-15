@@ -1,2 +1,22 @@
-<div>Your bets</div>
-<div>{{bets.length}}</div>
+<div class="col-xs-6 col-md-7 betList">
+  <div *ngIf="bets.length>0">Your Bets</div>
+  <div *ngFor="let singleBet of bets">
+    <div>{{singleBet.date}}</div>
+    <ul class="list-group" *ngFor="let match of singleBet.bet">
+      <li class="list-group-item clearfix">
+        <span class="col-xs-6">
+          {{match.team1}} - {{match.team2}}
+        </span>
+        <span *ngIf="match.results.t1" class="col-xs-4 col-md-6">
+          {{match.team1}} wins
+        </span>
+        <span *ngIf="match.results.d" class="col-xs-4 col-md-6">
+          Draw
+        </span>
+        <span *ngIf="match.results.t2" class="col-xs-4 col-md-6">
+          {{match.team2}} wins
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

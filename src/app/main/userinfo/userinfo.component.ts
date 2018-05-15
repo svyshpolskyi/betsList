@@ -1,6 +1,5 @@
 import { BetsService } from './../../shared/bets.service';
 import { Component, OnInit } from '@angular/core';
-import { UserinfoService } from './userinfo.service';
 
 @Component({
   selector: 'app-userinfo',
@@ -9,11 +8,18 @@ import { UserinfoService } from './userinfo.service';
 })
 export class UserinfoComponent implements OnInit {
   bets;
+  dates;
 
-  constructor(private betService: BetsService) { }
+  constructor(private betsService: BetsService) { }
 
   ngOnInit() {
-    this.bets = this.betService.getAllBets();
+    this.bets = this.betsService.getAllBets();
+    this.betsService.betSubmitted
+    .subscribe(
+      (bets) => {
+        this.bets = bets;
+      }
+    );
   }
 
 }

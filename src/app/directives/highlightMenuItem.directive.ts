@@ -1,17 +1,18 @@
 import { Directive, OnInit, ElementRef, HostBinding, HostListener } from '@angular/core';
 
-@Directive ({
+@Directive({
     selector: '[appMenuItemHighlight]'
 })
- export class MenuHighlightDirective implements OnInit {
-     @HostBinding('style.backgroundColor') backgroundColor: string;
-     constructor (private elRef: ElementRef) {}
-     ngOnInit() {}
-     @HostListener('mouseover') mouseover() {
-         this.backgroundColor = '#7ccbe2';
-     }
+export class MenuHighlightDirective {
+    @HostBinding('style.backgroundColor') backgroundColor: string;
 
-     @HostListener('mouseleave') mouseleave() {
+    constructor(private elRef: ElementRef) { }
+
+    @HostListener('mouseover') mouseover() {
+        this.backgroundColor = '#7ccbe2';
+    }
+
+    @HostListener('mouseleave') mouseleave() {
         this.backgroundColor = 'transparent';
     }
- }
+}

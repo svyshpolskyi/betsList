@@ -6,17 +6,14 @@ import { AppComponent } from './app.component';
 import { MatchesListComponent } from './main/matches-list/matches-list.component';
 import { BetListComponent } from './main/bet-list/bet-list.component';
 import { HeaderComponent } from './header/header.component';
-import { HighlightDirective } from './directives/highlight.directive';
 import { MenuHighlightDirective } from './directives/highlightMenuItem.directive';
 import { MatchesService } from './main/matches-list/matches-list.service';
 import { ToggleBlockDirective } from './directives/toggleBlock.directive';
 import { CompetitionComponent } from './main/matches-list/competition/competition.component';
-import { CompetitionLogoDirective } from './directives/competLogo.directive';
 import { LogosService } from './shared/logos.service';
 import { Routes, RouterModule } from '@angular/router';
 import { UserinfoComponent } from './main/userinfo/userinfo.component';
 import { MainComponent } from './main/main.component';
-import { UserinfoService } from './main/userinfo/userinfo.service';
 import { BetsService } from './shared/bets.service';
 
 const appRoutes: Routes = [
@@ -33,10 +30,8 @@ const appRoutes: Routes = [
     BetListComponent,
     HeaderComponent,
     UserinfoComponent,
-    HighlightDirective,
     MenuHighlightDirective,
-    ToggleBlockDirective,
-    CompetitionLogoDirective
+    ToggleBlockDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +39,6 @@ const appRoutes: Routes = [
   ],
   providers: [MatchesService,
               LogosService,
-              UserinfoService,
               BetsService],
   bootstrap: [AppComponent]
 })

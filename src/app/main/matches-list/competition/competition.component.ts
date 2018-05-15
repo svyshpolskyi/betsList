@@ -6,7 +6,7 @@ import { LogosService } from '../../../shared/logos.service';
     styleUrls: ['./competition.component.css']
 })
 export class CompetitionComponent implements OnInit {
-    logo;
+    logo: string;
     @Input() matches;
     @Input() competition;
     constructor(private logoService: LogosService) {}
