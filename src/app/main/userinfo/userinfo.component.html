@@ -3,17 +3,17 @@
   <div *ngFor="let singleBet of bets">
     <div>{{singleBet.date}}</div>
     <ul class="list-group" *ngFor="let match of singleBet.bet">
-      <li class="list-group-item clearfix">
-        <span class="col-xs-6">
+      <li class="betList-match list-group-item clearfix">
+        <span class="betList-match-cell betList-match-teams col-xs-6">
           {{match.team1}} - {{match.team2}}
         </span>
-        <span *ngIf="match.results.t1" class="col-xs-4 col-md-6">
+        <span *ngIf="match.results.t1" class="betList-match-cell col-xs-4 col-md-6">
           {{match.team1}} wins
         </span>
-        <span *ngIf="match.results.d" class="col-xs-4 col-md-6">
+        <span *ngIf="match.results.d" class="betList-match-cell col-xs-4 col-md-6">
           Draw
         </span>
-        <span *ngIf="match.results.t2" class="col-xs-4 col-md-6">
+        <span *ngIf="match.results.t2" class="betList-match-cell col-xs-4 col-md-6">
           {{match.team2}} wins
         </span>
       </li>

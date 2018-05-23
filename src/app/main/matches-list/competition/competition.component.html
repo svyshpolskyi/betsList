@@ -1,13 +1,13 @@
 <div class="competition" *ngIf="matches.length > 0">
-    <div class="competitionHeader" appToggleBlock>
-        <img [src]="logo"> {{competition}}
-        <i class="arrow"></i>
+    <div class="competition-header" appToggleBlock>
+        <img class="competition-header-logo" [src]="logo"> {{competition}}
+        <i class="competition-toggleArrow"></i>
     </div>
     <ul class="nav nav-pills nav-stacked">
         <li class="matchList" *ngFor="let match of matches">
-            <a class="col-md-4 text-left" (click)="addBet(match, 't1')" [ngClass]="{'selectedTeam': match.results.t1}">{{match.team1}}</a>
-            <a class="col-md-4 text-center" (click)="addBet(match, 'd')" [ngClass]="{'selectedTeam': match.results.d}">Draw</a>
-            <a class="col-md-4 text-right" (click)="addBet(match, 't2')" [ngClass]="{'selectedTeam': match.results.t2}">{{match.team2}}</a>
+            <a class="matchList-result col-md-4 text-left" (click)="addBet(match, 't1')" [ngClass]="{'selectedTeam': match.results.t1}">{{match.team1}}</a>
+            <a class="matchList-result col-md-4 text-center" (click)="addBet(match, 'd')" [ngClass]="{'selectedTeam': match.results.d}">Draw</a>
+            <a class="matchList-result col-md-4 text-right" (click)="addBet(match, 't2')" [ngClass]="{'selectedTeam': match.results.t2}">{{match.team2}}</a>
         </li>
     </ul>
 </div>

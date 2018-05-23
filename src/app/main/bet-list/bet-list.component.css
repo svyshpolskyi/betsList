@@ -1,20 +1,13 @@
-.betList ul {
-    margin-top: 0;
-}
 
-.betList li {
+.betList-match {
     padding: 0;
 }
 
-.betList li span {
+.betList-match-cell {
     padding: 10px 15px;
     text-align: center;
 }
 
-.betList li span:first-child {
+.betList-match-teams {
     border-right: 1px solid #ddd;
-}
-
-.betList div:first-child ul:first-child {
-    margin-top: 20px;
 }

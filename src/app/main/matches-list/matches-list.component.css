@@ -4,44 +4,10 @@
   background-color: #00ffa1c4;
   cursor: pointer;
 }
-.competition {
-  border: 1px solid #bbb7b7;
-  margin: 20px 0;
-}
+
 .championsLeague {
   background: url('//cdn6.aptoide.com/imgs/4/2/8/428885c8dc7f3c9194b748250e1dea01_icon.png?w=256') no-repeat;  
 }
 .premierLeague {
   background: url('//cdn.iconscout.com/public/images/icon/free/png-256/the-premier-league-logo-311057103d3d6a1d-256x256.png') no-repeat;  
-}
-.competitionHeader {
-  padding: 10px 10px 10px 40px;
-  border-bottom: 1px solid #bbb7b7;
-  background-color: #bbb7b7;
-  background-position: 5px;
-  background-size: 30px;
-  background-color: #bbb7b7;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.opened+ul {
-  display: none;
-}
-
-i {
-  border: solid #333;
-  border-width: 0 4px 4px 0;
-  padding: 4px;
-  float: right;
-  margin: 5px 5px 0 0;
-  transform: rotate(-135deg);
-}
-
-.opened i {
-  transform: rotate(45deg);
-}
-
-.matchList a {
-  cursor: pointer;
 }

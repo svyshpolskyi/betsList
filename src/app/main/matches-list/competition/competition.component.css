@@ -4,12 +4,13 @@
   background-color: #00ffa1c4;
   cursor: pointer;
 }
+
 .competition {
   border: 1px solid #bbb7b7;
   margin: 20px 0;
 }
 
-.competitionHeader {
+.competition-header {
   padding: 5px 10px 5px 16px;
   border-bottom: 1px solid #bbb7b7;
   background-color: #bbb7b7;
@@ -20,7 +21,7 @@
   font-weight: bold;
 }
 
-.competitionHeader img {
+.competition-header-logo {
   width: 30px;
   margin-right: 10px;
 }
@@ -29,7 +30,7 @@
   display: none;
 }
 
-i {
+.competition-toggleArrow {
   border: solid #333;
   border-width: 0 4px 4px 0;
   padding: 4px;
@@ -38,10 +39,10 @@ i {
   transform: rotate(-135deg);
 }
 
-.opened i {
+.opened .competition-toggleArrow {
   transform: rotate(45deg);
 }
 
-.matchList a {
+.matchList-result {
   cursor: pointer;
 }
