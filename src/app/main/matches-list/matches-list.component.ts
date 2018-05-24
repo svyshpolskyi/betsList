@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-matches-list',
   templateUrl: './matches-list.component.html',
-  styleUrls: ['./matches-list.component.css']
+  styleUrls: ['./matches-list.component.scss']
 })
 export class MatchesListComponent implements OnInit {
   matches;
