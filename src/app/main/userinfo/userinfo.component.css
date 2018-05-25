@@ -1,0 +1,13 @@
+
+.betList-match {
+    padding: 0;
+}
+
+.betList-match-cell {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.betList-match-teams {
+    border-right: 1px solid #ddd;
+}
