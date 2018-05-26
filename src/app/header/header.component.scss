@@ -1,8 +1,15 @@
-ul {
+.header-menu {
     background-color: #5bc0de;
+
+    
+    .header-menu-item-link {
+        color: #003d4c;
+        font-weight: bold;
+    }
+
+    .header-menu-item-link--active,
+    .header-menu-item-link:hover {
+        background-color: #4193ac;
+    }
 }
 
-a {
-    color: #003d4c;
-    font-weight: bold;
-}
