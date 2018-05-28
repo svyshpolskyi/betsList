@@ -15,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserinfoComponent } from './main/userinfo/userinfo.component';
 import { MainComponent } from './main/main.component';
 import { BetsService } from './shared/bets.service';
+import { MatchComponent } from './shared/match/match.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     UserinfoComponent,
     MenuHighlightDirective,
-    ToggleBlockDirective
+    ToggleBlockDirective,
+    MatchComponent
   ],
   imports: [
     BrowserModule,

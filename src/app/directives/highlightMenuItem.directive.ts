@@ -4,15 +4,15 @@ import { Directive, OnInit, ElementRef, HostBinding, HostListener } from '@angul
     selector: '[appMenuItemHighlight]'
 })
 export class MenuHighlightDirective {
-    @HostBinding('style.backgroundColor') backgroundColor: string;
+    // @HostBinding('style.backgroundColor') backgroundColor: string;
 
-    constructor(private elRef: ElementRef) { }
+    // constructor(private elRef: ElementRef) { }
 
-    @HostListener('mouseover') mouseover() {
-        this.backgroundColor = '#7ccbe2';
-    }
+    // @HostListener('mouseover') mouseover() {
+    //     this.backgroundColor = '#7ccbe2';
+    // }
 
-    @HostListener('mouseleave') mouseleave() {
-        this.backgroundColor = 'transparent';
-    }
+    // @HostListener('mouseleave') mouseleave() {
+    //     this.backgroundColor = 'transparent';
+    // }
 }

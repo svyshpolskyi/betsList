@@ -1,11 +1,20 @@
 <ul class="header-menu nav navbar-nav col-xs-6 col-md-12">
-  <li>
-    <a class='header-menu-item-link' appMenuItemHighlight routerLink="/">Matches list</a>
+  <li class="active">
+    <a  class='header-menu-item-link'
+        routerLink="/" 
+        routerLinkActive="header-menu-item-link--active"
+        [routerLinkActiveOptions]="{exact: true}"
+        appMenuItemHighlight>Matches list</a>
   </li>
   <li>
-    <a class='header-menu-item-link' appMenuItemHighlight>Bets</a>
+    <a  class='header-menu-item-link'
+        routerLinkActive="header-menu-item-link--active" 
+        appMenuItemHighlight>Bets</a>
   </li>
   <li class="userInfo navbar-right">
-    <a class='header-menu-item-link' appMenuItemHighlight routerLink="/userinfo">User info</a>
+    <a  class='header-menu-item-link'
+        routerLink="/userinfo"
+        routerLinkActive="header-menu-item-link--active" 
+        appMenuItemHighlight>User info</a>
   </li>
 </ul>
