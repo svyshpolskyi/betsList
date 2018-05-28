@@ -16,10 +16,12 @@ import { UserinfoComponent } from './main/userinfo/userinfo.component';
 import { MainComponent } from './main/main.component';
 import { BetsService } from './shared/bets.service';
 import { MatchComponent } from './shared/match/match.component';
+import { UsersComponent } from './main/users/users.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'userinfo', component: UserinfoComponent }
+  { path: 'userinfo', component: UserinfoComponent },
+  { path: 'users', component: UsersComponent }
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     UserinfoComponent,
     MenuHighlightDirective,
     ToggleBlockDirective,
-    MatchComponent
+    MatchComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
