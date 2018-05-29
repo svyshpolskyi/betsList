@@ -17,11 +17,15 @@ import { MainComponent } from './main/main.component';
 import { BetsService } from './shared/bets.service';
 import { MatchComponent } from './shared/match/match.component';
 import { UsersComponent } from './main/users/users.component';
+import { UserComponent } from './main/users/user/user.component';
+import { UsersService } from './main/users/users.service';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'userinfo', component: UserinfoComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'users', component: UsersComponent, children: [
+    {path: ':id', component: UserComponent}
+  ]}
 ];
 
 @NgModule({
@@ -36,7 +40,8 @@ const appRoutes: Routes = [
     MenuHighlightDirective,
     ToggleBlockDirective,
     MatchComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ const appRoutes: Routes = [
   ],
   providers: [MatchesService,
               LogosService,
-              BetsService],
+              BetsService,
+              UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
