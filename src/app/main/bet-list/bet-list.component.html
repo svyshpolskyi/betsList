@@ -1,20 +1,6 @@
 <div class="col-xs-6 col-md-7 betList">
   <div *ngIf="newBet.hasOwnProperty('bet')">Your last bet</div>
   <ul class="list-group" *ngFor="let bet of newBet.bet">
-    <li class="betList-match list-group-item clearfix">
       <app-match [match]="bet"></app-match>
-      <!-- <span class="betList-match-cell betList-match col-xs-6">
-        {{bet.team1}} - {{bet.team2}}
-      </span>
-      <span *ngIf="bet.results.t1" class="betList-match-cell col-xs-4 col-md-6">
-        {{bet.team1}} wins
-      </span>
-      <span *ngIf="bet.results.d" class="betList-match-cell col-xs-4 col-md-6">
-        Draw
-      </span>
-      <span *ngIf="bet.results.t2" class="betList-match-cell col-xs-4 col-md-6">
-        {{bet.team2}} wins
-      </span> -->
-    </li>
   </ul>
 </div>
