@@ -1,5 +1,11 @@
 <div class="col-xs-6 col-md-5">
-  <app-competition *ngFor="let competition of competitions" [matches]="matches[competition]" [competition]="competition"></app-competition>
-  <button class="btn btn-primary submitBet" (click)="submitBet()">Submit bet</button>
-  <button class="btn btn-warning" (click)="clearSelection()">Clear selection</button>
+  <app-competition *ngFor="let competition of competitions" 
+    [matches]="matches[competition]" 
+    [competition]="competition"></app-competition>
+  <button class="btn btn-primary submitBet" 
+    (click)="submitBet()">
+    Submit bet</button>
+  <button class="btn btn-warning" 
+    (click)="clearSelection()">
+    Clear selection</button>
 </div>

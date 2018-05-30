@@ -1,6 +1,7 @@
 <div class="col-xs-6 col-md-7 betList">
   <div *ngIf="newBet.hasOwnProperty('bet')">Your last bet</div>
-  <ul class="list-group" *ngFor="let bet of newBet.bet">
+  <ul class="list-group" 
+    *ngFor="let bet of newBet.bet">
       <app-match [match]="bet"></app-match>
   </ul>
 </div>

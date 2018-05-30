@@ -2,7 +2,9 @@
 <div>Users list</div>
 <ul class="nav nav-pills nav-stacked">
   <li *ngFor="let user of users">
-    <a [routerLink]="['/users', user.id]" class="user-item-link">{{user.name}}</a>
+    <a [routerLink]="['/users', user.id]" 
+      class="user-item-link">
+      {{user.name}}</a>
   </li>
 </ul>
 </div>

@@ -2,11 +2,14 @@
   <div *ngIf="bets.length>0">Your Bets</div>
   <div *ngFor="let singleBet of bets">
     <div>{{singleBet.date}}</div>
-    <ul class="list-group" *ngFor="let match of singleBet.bet">
+    <ul class="list-group" 
+      *ngFor="let match of singleBet.bet">
       <app-match [match]="match"></app-match>  
     </ul>
   </div>
 </div>
 <div class="col-xs-6 col-md-7">
-  <button class="btn btn-primary" (click)="returnToMain()">Back to matches list</button>
+  <button class="btn btn-primary" 
+    (click)="returnToMain()">
+    Back to matches list</button>
 </div>
