@@ -1,4 +1,3 @@
-import { Bet } from './bet.model';
 import { EventEmitter } from '@angular/core';
 import * as _ from 'lodash';
 
