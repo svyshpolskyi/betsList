@@ -28,16 +28,27 @@ export class MatchesListComponent implements OnInit {
   }
 
   onResultSelected(match: Match) {
-    if (this.selectedMatches.length > 0) {
-    for (let i = 0; i < this.selectedMatches.length; i++) {
-      if (this.selectedMatches[i].matchId === match.matchId) {
-        this.selectedMatches.splice(i, 1);
-      } else {
-        this.selectedMatches.push(match);
+          if (this.selectedMatches.length === 0) {
+            this.selectedMatches.push(match);
+          } else {
+            const newMatch = this.selectedMatches.find(
+              (selectedMatch, index) => {
+                if (selectedMatch.matchId === match.matchId) {
+                  if (!(match.results.t1 || match.results.d || match.results.t2)) {
+                    this.selectedMatches.splice(index, 1);
+                    return selectedMatch.matchId === match.matchId;
+                  } else {
+                  this.selectedMatches.splice(index, 1, match);
+                  return selectedMatch.matchId === match.matchId;
+                  }
+                } else if (index === (this.selectedMatches.length - 1)) {
+                  this.selectedMatches.push(match);
+                  return true;
+                }
       }
-    }
-  } else {this.selectedMatches.push(match); }
+    );
     console.log(this.selectedMatches);
+  }
 
 
   }
