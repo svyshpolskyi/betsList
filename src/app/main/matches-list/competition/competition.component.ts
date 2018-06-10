@@ -10,21 +10,32 @@ export class CompetitionComponent implements OnInit {
     logo: string;
     @Input() matches;
     @Input() competition;
-    @Output() resultSelected = new EventEmitter<Match>();
+    @Output() resultSelected = new EventEmitter<any>();
     constructor(private logoService: LogosService) {}
     ngOnInit() {
         this.logo = this.logoService.selectLogo(this.competition);
     }
 
+    // addBet(match: Match, selectedResult: string): void {
+    //     for (const result in match.results) {
+    //       if (result === selectedResult) {
+    //         match.results[result] = !match.results[result];
+    //       } else {
+    //         match.results[result] = false;
+    //       }
+    //     }
+    //     this.resultSelected.emit(match);
+    //   }
+
     addBet(match: Match, selectedResult: string): void {
-        for (const result in match.results) {
-          if (result === selectedResult) {
-            match.results[result] = !match.results[result];
-          } else {
-            match.results[result] = false;
-          }
+      for (const result in match.results) {
+        if (result === selectedResult) {
+          match.results[result] = !match.results[result];
+        } else {
+          match.results[result] = false;
         }
-        this.resultSelected.emit(match);
       }
+      this.resultSelected.emit(match);
+    }
 
 }

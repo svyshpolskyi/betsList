@@ -13,9 +13,10 @@ export class MatchesListComponent implements OnInit {
   matches;
   competitions;
   selectedMatches = [];
+  selectedMatches2 = {};
 
   constructor(private matchesService: MatchesService,
-              private betsService: BetsService) {
+    private betsService: BetsService) {
   }
 
   ngOnInit() {
@@ -24,40 +25,54 @@ export class MatchesListComponent implements OnInit {
   }
 
   clearSelection() {
-    this.matches =  this.matchesService.getMatches();
+    this.matches = this.matchesService.getMatches();
   }
 
-  onResultSelected(match: Match) {
-          if (this.selectedMatches.length === 0) {
-            this.selectedMatches.push(match);
-          } else {
-            const newMatch = this.selectedMatches.find(
-              (selectedMatch, index) => {
-                if (selectedMatch.matchId === match.matchId) {
-                  if (!(match.results.t1 || match.results.d || match.results.t2)) {
-                    this.selectedMatches.splice(index, 1);
-                    return selectedMatch.matchId === match.matchId;
-                  } else {
-                  this.selectedMatches.splice(index, 1, match);
-                  return selectedMatch.matchId === match.matchId;
-                  }
-                } else if (index === (this.selectedMatches.length - 1)) {
-                  this.selectedMatches.push(match);
-                  return true;
-                }
-      }
+  // onResultSelected(match: Match) {
+  //   if (this.selectedMatches.length === 0) {
+  //     this.selectedMatches.push(match);
+  //   } else {
+  //     const newMatch = this.selectedMatches.find(
+  //       (selectedMatch, index) => {
+  //         if (selectedMatch.matchId === match.matchId) {
+  //           if (!(match.results.t1 || match.results.d || match.results.t2)) {
+  //             this.selectedMatches.splice(index, 1);
+  //             return selectedMatch.matchId === match.matchId;
+  //           } else {
+  //             this.selectedMatches.splice(index, 1, match);
+  //             return selectedMatch.matchId === match.matchId;
+  //           }
+  //         } else if (index === (this.selectedMatches.length - 1)) {
+  //           this.selectedMatches.push(match);
+  //           return true;
+  //         }
+  //       }
+  //     );
+  //   }
+  // }
+
+  onResultSelected($event) {
+    const array = this.selectedMatches.filter(
+      (item) => item.matchId === $event.matchId
     );
+    if (array.length === 0) {
+      this.selectedMatches = [... this.selectedMatches, $event];
+    } else {
+      this.selectedMatches = ($event.results.t1 || $event.results.d || $event.results.t2) ?
+        [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event] :
+        [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
+    }
+
     console.log(this.selectedMatches);
+    this.selectedMatches2 = {
+      ... this.selectedMatches2,
+      [$event.id]: $event.selectedResult,
+    };
   }
 
+    submitBet(): void {
+      this.betsService.addNewBet(_.cloneDeep(this.selectedMatches));
+      this.selectedMatches = [];
+    }
 
   }
-
-  submitBet(): void {
-    const clonedMatches = _.cloneDeep(this.matches);
-    const flattenedMatches = (_.values(clonedMatches)).reduce((acc, cur) => acc.concat(cur));
-    console.log(flattenedMatches);
-    this.betsService.addNewBet(new Date, flattenedMatches);
-  }
-
-}
