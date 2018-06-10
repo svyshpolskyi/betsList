@@ -26,20 +26,20 @@ export class MatchesListComponent implements OnInit {
 
   clearSelection() {
     this.matches = this.matchesService.getMatches();
+    this.selectedMatches = [];
   }
-
   // onResultSelected(match: Match) {
-  //   if (this.selectedMatches.length === 0) {
-  //     this.selectedMatches.push(match);
+    //   if (this.selectedMatches.length === 0) {
+      //     this.selectedMatches.push(match);
   //   } else {
-  //     const newMatch = this.selectedMatches.find(
+    //     const newMatch = this.selectedMatches.find(
   //       (selectedMatch, index) => {
-  //         if (selectedMatch.matchId === match.matchId) {
-  //           if (!(match.results.t1 || match.results.d || match.results.t2)) {
-  //             this.selectedMatches.splice(index, 1);
-  //             return selectedMatch.matchId === match.matchId;
-  //           } else {
-  //             this.selectedMatches.splice(index, 1, match);
+    //         if (selectedMatch.matchId === match.matchId) {
+      //           if (!(match.results.t1 || match.results.d || match.results.t2)) {
+        //             this.selectedMatches.splice(index, 1);
+        //             return selectedMatch.matchId === match.matchId;
+        //           } else {
+          //             this.selectedMatches.splice(index, 1, match);
   //             return selectedMatch.matchId === match.matchId;
   //           }
   //         } else if (index === (this.selectedMatches.length - 1)) {
@@ -59,8 +59,8 @@ export class MatchesListComponent implements OnInit {
       this.selectedMatches = [... this.selectedMatches, $event];
     } else {
       this.selectedMatches = ($event.results.t1 || $event.results.d || $event.results.t2) ?
-        [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event] :
-        [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
+      [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event] :
+      [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
     }
 
     console.log(this.selectedMatches);
@@ -69,10 +69,14 @@ export class MatchesListComponent implements OnInit {
       [$event.id]: $event.selectedResult,
     };
   }
-
-    submitBet(): void {
+  submitBet(): void {
+      if (this.selectedMatches.length === 0) {
+        alert('Please select at least one match!');
+      } else {
       this.betsService.addNewBet(_.cloneDeep(this.selectedMatches));
+      this.matches = this.matchesService.getMatches();
       this.selectedMatches = [];
+      }
     }
 
   }
