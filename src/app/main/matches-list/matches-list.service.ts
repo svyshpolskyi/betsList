@@ -1,5 +1,3 @@
-import * as _ from 'lodash';
-
 export class MatchesService {
   private matches = {
     'Champions League': [
@@ -18,6 +16,6 @@ export class MatchesService {
     ]
   };
   getMatches() {
-    return _.cloneDeep(this.matches);
+    return this.matches;
   }
 }

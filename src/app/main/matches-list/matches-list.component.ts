@@ -52,15 +52,16 @@ export class MatchesListComponent implements OnInit {
   // }
 
   onResultSelected($event) {
+    // console.log($event);
     const array = this.selectedMatches.filter(
       (item) => item.matchId === $event.matchId
     );
     if (array.length === 0) {
       this.selectedMatches = [... this.selectedMatches, $event];
     } else {
-      this.selectedMatches = ($event.results.t1 || $event.results.d || $event.results.t2) ?
-      [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event] :
-      [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
+      // this.selectedMatches = ($event.results.t1 || $event.results.d || $event.results.t2) ?
+      this.selectedMatches = [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event];
+      // [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
     }
 
     console.log(this.selectedMatches);

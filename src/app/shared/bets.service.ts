@@ -25,6 +25,8 @@ export class BetsService {
     addNewBet(matches: Match[]): void {
         this.bets.push({ 'date': new Date, 'bet': matches });
         this.betSubmitted.emit(this.bets);
+        console.log(this.bets);
+        
     }
 
 }

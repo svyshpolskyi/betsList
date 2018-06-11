@@ -11,15 +11,15 @@
         <li class="matchList" 
             *ngFor="let match of matches">
             <a class="matchList-result col-md-4 text-left" 
-                (click)="addBet(match, 't1')" 
+                (click)="addBet({matchId: match.matchId, selectedResult: 't1'})" 
                 [ngClass]="{'selectedTeam': match.results.t1}">
                 {{match.team1}}</a>
             <a class="matchList-result col-md-4 text-center" 
-                (click)="addBet(match, 'd')" 
+                (click)="addBet({matchId: match.matchId, selectedResult: 'd'})" 
                 [ngClass]="{'selectedTeam': match.results.d}">
                 Draw</a>
             <a class="matchList-result col-md-4 text-right" 
-                (click)="addBet(match, 't2')" 
+                (click)="addBet({matchId: match.matchId, selectedResult: 't2'})"
                 [ngClass]="{'selectedTeam': match.results.t2}">
                 {{match.team2}}</a>
         </li>

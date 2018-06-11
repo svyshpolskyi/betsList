@@ -27,15 +27,16 @@ export class CompetitionComponent implements OnInit {
     //     this.resultSelected.emit(match);
     //   }
 
-    addBet(match: Match, selectedResult: string): void {
-      for (const result in match.results) {
-        if (result === selectedResult) {
-          match.results[result] = !match.results[result];
-        } else {
-          match.results[result] = false;
-        }
-      }
-      this.resultSelected.emit(match);
+    addBet(data: {matchId: number, selectedResult: string}): void {
+      // for (const result in match.results) {
+      //   if (result === selectedResult) {
+      //     match.results[result] = !match.results[result];
+      //   } else {
+      //     match.results[result] = false;
+      //   }
+      // }
+      // console.log(data.matchId, data.selectedResult);
+      this.resultSelected.emit({matchId: data.matchId, selectedResult: data.selectedResult} );
     }
 
 }
