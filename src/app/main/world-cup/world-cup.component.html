@@ -1,0 +1,7 @@
+
+<div *ngIf="data.length === 0">
+    Loading...
+</div>
+<div *ngFor="let match of data" class="wc2012 col-xs-6 col-md-12">
+    <app-single-match [singleMatch]="match"></app-single-match>
+</div>

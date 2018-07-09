@@ -10,22 +10,13 @@ export class CompetitionComponent implements OnInit {
     logo: string;
     @Input() matches;
     @Input() competition;
+    @Input() selectedMatchesState;
     @Output() resultSelected = new EventEmitter<any>();
     constructor(private logoService: LogosService) {}
     ngOnInit() {
         this.logo = this.logoService.selectLogo(this.competition);
     }
 
-    // addBet(match: Match, selectedResult: string): void {
-    //     for (const result in match.results) {
-    //       if (result === selectedResult) {
-    //         match.results[result] = !match.results[result];
-    //       } else {
-    //         match.results[result] = false;
-    //       }
-    //     }
-    //     this.resultSelected.emit(match);
-    //   }
 
     addBet(data: {matchId: number, selectedResult: string}): void {
       // for (const result in match.results) {
@@ -35,8 +26,20 @@ export class CompetitionComponent implements OnInit {
       //     match.results[result] = false;
       //   }
       // }
-      // console.log(data.matchId, data.selectedResult);
+
+    //   this.isHighlighted = !this.selectedMatchesState.find(match => {
+    //       return match.matchId === data.matchId && match.selectedResult === data.selectedResult;
+    //     });
+    // console.log(data, this.selectedMatchesState);
+
       this.resultSelected.emit({matchId: data.matchId, selectedResult: data.selectedResult} );
+    }
+
+    isHighlighted(data: {matchId: number, selectedResult: string}): void {
+        // return this.selectedMatchesState.find(match => {
+        //     // console.log(match.matchId, data.matchId, match.selectedResult, data.selectedResult);
+        //     return match.matchId === data.matchId && match.selectedResult === data.selectedResult;
+        // });
     }
 
 }

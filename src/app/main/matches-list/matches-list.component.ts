@@ -60,10 +60,13 @@ export class MatchesListComponent implements OnInit {
       this.selectedMatches = [... this.selectedMatches, $event];
     } else {
       // this.selectedMatches = ($event.results.t1 || $event.results.d || $event.results.t2) ?
-      this.selectedMatches = [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId), $event];
+      // console.log(array);
+      const newArr = [...array.filter(el => $event.selectedResult !== el.selectedResult)];
+      // console.log(newObj);
+      // console.log(newObj);
+      this.selectedMatches = [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
       // [... this.selectedMatches.filter((item) => item.matchId !== $event.matchId)];
     }
-
     console.log(this.selectedMatches);
     this.selectedMatches2 = {
       ... this.selectedMatches2,

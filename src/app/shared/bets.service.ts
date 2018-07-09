@@ -26,7 +26,6 @@ export class BetsService {
         this.bets.push({ 'date': new Date, 'bet': matches });
         this.betSubmitted.emit(this.bets);
         console.log(this.bets);
-        
     }
 
 }

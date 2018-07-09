@@ -13,7 +13,8 @@ export class UserinfoComponent implements OnInit {
 
   constructor(private betsService: BetsService,
               private router: Router
-            ) { }
+            ) {
+            }
 
   ngOnInit() {
     this.bets = this.betsService.getAllBets();
@@ -28,5 +29,9 @@ export class UserinfoComponent implements OnInit {
   returnToMain() {
     this.router.navigate(['/']);
   }
+
+
+
+
 
 }

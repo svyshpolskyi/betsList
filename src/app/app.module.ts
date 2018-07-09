@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -19,10 +20,14 @@ import { MatchComponent } from './shared/match/match.component';
 import { UsersComponent } from './main/users/users.component';
 import { UserComponent } from './main/users/user/user.component';
 import { UsersService } from './main/users/users.service';
+import { WorldCupComponent } from './main/world-cup/world-cup.component';
+import { WorldCupService } from './shared/world-cup.service';
+import { SinlgeMatchComponent } from './main/world-cup/single-match/single-match.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'userinfo', component: UserinfoComponent },
+  { path: 'wc2018', component: WorldCupComponent },
   { path: 'users', component: UsersComponent, children: [
     {path: ':id', component: UserComponent}
   ]}
@@ -41,16 +46,20 @@ const appRoutes: Routes = [
     ToggleBlockDirective,
     MatchComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    WorldCupComponent,
+    SinlgeMatchComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [MatchesService,
               LogosService,
               BetsService,
-              UsersService],
+              UsersService,
+            WorldCupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
